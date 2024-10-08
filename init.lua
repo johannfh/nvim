@@ -124,7 +124,15 @@ require("lazy").setup({
     spec = {
         import = "plugins"
     },
-    checker = { enabled = false }
+    -- automatically check for config file changes and reload the ui
+    change_detection = {
+        enabled = false,
+        notify = false,
+    },
+    -- Automatically check for plugin updates
+    checker = {
+        enabled = true,
+    },
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the
