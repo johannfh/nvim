@@ -16,6 +16,14 @@ return {
             -- You can configure highlights by doing something like:
             vim.cmd.hi 'Comment gui=none'
         end,
+        opts = {
+            styles = {
+                keywords = { italic = false },
+                comments = { italic = false },
+                functions = { italic = false },
+                variables = { italic = false },
+            },
+        },
     },
     {
         "rose-pine/neovim",
