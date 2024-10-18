@@ -135,6 +135,7 @@ return {
                 -- clangd = {},
                 gopls = {},
                 zls = {},
+                -- dartls = {}, -- how do i get this to work?? Also: flutter?
                 -- ruby_lsp = {
                 --     mason = false,
                 --     cmd = { vim.fn.expand("~/.asdf/shims/ruby_lsp") },
