@@ -1,5 +1,9 @@
 return {
     {
+        -- support for justfiles
+        "NoahTheDuke/vim-just",
+    },
+    {
         -- Main LSP Configuration
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -197,5 +201,5 @@ return {
             })
         end,
     },
-
 }
+
