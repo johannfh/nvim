@@ -11,6 +11,12 @@ end
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Vertical line at 80 characters
+vim.opt.colorcolumn = "80"
+vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = "lightgrey", bg = "lightgrey" })
+
+vim.opt.termguicolors = true
+
 -- Enable mouse mode
 vim.opt.mouse = "a"
 
