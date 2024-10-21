@@ -6,6 +6,7 @@ require("johannfh.lazy")
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
 local johannfh_group = augroup("johannfh", {})
+local autoformatting_group = augroup("AutoFormatting", {})
 
 -- autocommands below
 local autocmd = vim.api.nvim_create_autocmd
@@ -18,6 +19,14 @@ autocmd("TextYankPost", {
             timeout = 50
         })
     end,
+})
+
+autocmd("BufWritePre", {
+    group = autoformatting_group,
+    pattern = "*.go",
+    callback = function()
+        vim.lsp.buf.format()
+    end
 })
 
 autocmd("LspAttach", {
@@ -65,9 +74,20 @@ autocmd("LspAttach", {
         -- code, if the language server you are using supports them
         --
         -- WARN: This may be unwanted, since they displace some of your code
-        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            vim.keymap.set("n", "<leader>th", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = e.buf })) end, opts)
+        if (
+            client and
+            client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint)
+        ) then
+            vim.keymap.set(
+                "n",
+                "<leader>th",
+                function()
+                    vim.lsp.inlay_hint.enable(
+                        not vim.lsp.inlay_hint.is_enabled({ bufnr = e.buf })
+                    )
+                end,
+                opts
+            )
         end
     end,
 })
-
