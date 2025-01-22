@@ -47,8 +47,6 @@ return {
                 -- Python
                 pyright = {},
                 pylint = {},
-                -- Angular
-                angularls = {},
                 -- HTML
                 emmet_ls = {},
                 -- clangd = {},
