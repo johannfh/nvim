@@ -4,10 +4,6 @@ return {
         "NoahTheDuke/vim-just",
     },
     {
-        -- support for Java
-        "nvim-java/nvim-java"
-    },
-    {
         -- Main LSP Configuration
         "neovim/nvim-lspconfig",
         dependencies = {
