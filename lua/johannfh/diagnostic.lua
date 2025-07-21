@@ -8,7 +8,6 @@ vim.diagnostic.config({
 -- Used to toggle between:
 -- * Virtual Text (default)
 -- * Virtual Lines
--- * None (no diagnostics)
 local function toggle_diagnostic_display()
     local current_config = vim.diagnostic.config()
 
@@ -24,12 +23,6 @@ local function toggle_diagnostic_display()
             virtual_lines = true,
         })
         print("Diagnostic: Switched to `virtual_lines`")
-    elseif vt == false and vl == true then
-        vim.diagnostic.config({
-            virtual_text = false,
-            virtual_lines = false,
-        })
-        print("Diagnostic: Display Disabled")
     else
         vim.diagnostic.config({
             virtual_text = true,
