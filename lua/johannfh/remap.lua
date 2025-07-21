@@ -11,5 +11,7 @@ vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
+local diagnostic = require("johannfh.diagnostic")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
+vim.keymap.set("n", "<leader>dv", function() diagnostic.toggle_diagnostic_display() end,
+    { desc = "Toggle [D]iagnostic [V]irtual Display (Virtual Text/Lines/None)" })
