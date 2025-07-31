@@ -10,7 +10,7 @@ vim.keymap.set("n", "<Esc>", function()
 end)
 
 -- Open File Explorer (netrw)
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open File [E]xplorer" })
+vim.keymap.set("n", "<leader>e", function() vim.cmd('Explore') end, { desc = "Open File [E]xplorer" })
 
 
 -- Diagnostic keymaps
