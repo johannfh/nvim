@@ -4,14 +4,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Golang Error Return Keybind
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
-
 -- Clear search highlights when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", function()
     vim.opt.hlsearch = false
 end)
 
+-- Open File Explorer (netrw)
+vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open File [E]xplorer" })
 
 
 -- Diagnostic keymaps
