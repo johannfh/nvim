@@ -17,6 +17,7 @@ return {
             vim.cmd.hi 'Comment gui=none'
         end,
         opts = {
+            transparent = true, -- Enable transparent background
             styles = {
                 keywords = { italic = false },
                 comments = { italic = false },
