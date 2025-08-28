@@ -48,7 +48,7 @@ autocmd("LspAttach", {
         -- NOTE: This highlights an identifiers occurrences,
         -- when the curser is resting for a while
         local client = vim.lsp.get_client_by_id(e.data.client_id)
-        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = augroup("kickstart-lsp-highlight", { clear = false })
             autocmd({ "CursorHold", "CursorHoldI" }, {
                 buffer = e.buf,
@@ -77,7 +77,7 @@ autocmd("LspAttach", {
         -- WARN: This may be unwanted, since they displace some of your code
         if (
             client and
-            client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint)
+            client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint)
         ) then
             vim.keymap.set(
                 "n",
