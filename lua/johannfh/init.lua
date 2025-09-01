@@ -2,6 +2,7 @@ require("johannfh.set")
 require("johannfh.remap")
 require("johannfh.lazy")
 require("johannfh.diagnostic")
+require("johannfh.clipboard")
 
 -- autocommand groups below
 local augroup = vim.api.nvim_create_augroup
