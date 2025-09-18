@@ -27,5 +27,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "tokyonight.nvim": { "branch": "main", "commit": "14fd5ff7f84027064724ec3157fe903199e77ded" },
   "undotree": { "branch": "master", "commit": "fe9a9d0645f0f5532360b5e5f5c550d7bb4f1869" },
-  "vim-just": { "branch": "main", "commit": "04b0f122f14c83f55a0f8bb2a087754dc98cdccc" }
+  "vim-just": { "branch": "main", "commit": "04b0f122f14c83f55a0f8bb2a087754dc98cdccc" },
+  "vim-wakatime": { "branch": "master", "commit": "d7973b157a632d1edeff01818f18d67e584eeaff" }
 }
