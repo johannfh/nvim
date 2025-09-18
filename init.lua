@@ -1,12 +1,17 @@
---- @class Settings
---- @field wakatime WakatimeConfig|nil
+---All user settings, accessible via `vim.g.settings`.
+---For defaults, refer to `lua/core/options.lua`.
+---@class Settings
+---@field wakatime WakatimeSettings
+---
+---Settings for the Wakatime plugin.
+---@class WakatimeSettings
+---@field enabled boolean
 
---- @class WakatimeConfig
---- @field enabled boolean|nil
+local function load_settings_override()
+    local base_cfg_path = vim.fn.stdpath('config') .. "/.nvim-settings.lua"
 
----@return Settings|nil
-local function load_settings()
-    local success, settings = pcall(require, "settings")
+    local success, settings = pcall(dofile, base_cfg_path)
+
     if success then
         return settings
     else
@@ -14,8 +19,16 @@ local function load_settings()
     end
 end
 
-local settings = load_settings() or {}
+-- Load user settings override, if available
+local settings_override = load_settings_override() or {}
 
+-- Load default settings and merge with overrides, giving precedence to overrides
+-- This ensures that any settings not specified in the override file will fall back to defaults,
+-- preventing any possible nil access errors.
+local default_settings = require("core.options")
+local settings = vim.tbl_deep_extend("force", default_settings, settings_override)
+
+---@type Settings
 vim.g.settings = settings
 
 require("johannfh")
