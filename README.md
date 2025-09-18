@@ -1,61 +1,28 @@
-# Neovim config
+# Neovim Dotfiles
 
-Those are my Neovim dotfiles. 99% of `Issues` will be ignored.
+> [!NOTE]
+> When referencing paths, I use some `$PLACEHOLDERS` which have different meanings.
+> - `$NVIM_CONFIG` refers to the root of this repository
+> - `$WORKSPACE` refers to a project workspace, which is generally where you open Neovim at
 
-## Install Neovim
+## .nvim-settings.lua
 
-```sh
-sudo pacman -S neovim
-```
+This file contains user-specific settings for my config.
+The default settings and full spec can be found in `lua/core/options.lua`, but you can override them using this file.
 
-## Dependencies
+It is mostly used for enabling plugins that require user-specific configuration (like sign-in) or additional dependencies.
+By having a local config, you don't get flashed with a wall of errors when you first start Neovim.
 
-### Required
+I often find myself on machines where I don't have and need certains tools (say Ruby, Python, etc.)
+which resulted in errors when starting Neovim. This way I keep everything off by default and only enable
+what I really need.
 
-*Essential dependencies* for running this config.
+This will result in the following order of loading, from lowest to highest priority:
+1. `$NVIM_CONFIG/lua/core/options.lua` (default settings)
+2. `$NVIM_CONFIG/.nvim-settings.lua` (user settings)
+3. `$WORKSPACE/.nvim-settings.lua` (project settings, not yet implemented)
 
-- **Git**
-    ```sh
-    sudo pacman -S git
-    ```
-- **Lua v5.1**
-    ```sh
-    sudo pacman -S lua51
-    ```
-- **LuaJIT**
-    ```sh
-    sudo pacman -S luajit
-    ```
-- **Luarocks**
-    ```sh
-    sudo pacman -S luarocks
-    ```
-
-### Recommended
-
-*Highly recommended dependencies* generally **performance** related tools.
-
-- **Treesitter**
-    ```sh
-    sudo pacman -S tree-sitter-cli
-    ```
-- **Ripgrep** (faster `grep`):
-    ```sh
-    sudo pacman -S ripgrep
-    ```
-
-### Optional
-
-*Optional dependencies* usually for the respective **Language Servers**.
-
-- **(NodeJS)[https://nodejs.org/]** (Optional) via (Node Version Manager (NVM))[https://github.com/nvm-sh/nvm]:
-    ```sh
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-    # or
-    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-    ```
-- **(Go - Golang CLI)[https://go.dev/dl/]** (Optional - for gopls):
-    ```sh
-    sudo pacman -S go
-    ```
+> [!IMPORTANT]
+> I plan to make it possible to toggle these settings project-wise.
+> Currently only user settings are supported.
 
