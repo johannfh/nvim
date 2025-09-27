@@ -2,9 +2,13 @@
 ---For defaults, refer to `lua/core/options.lua`.
 ---@class Settings
 ---@field wakatime WakatimeSettings
+---@field github_copilot GithubCopilotSettings
 ---
 ---Settings for the Wakatime plugin.
 ---@class WakatimeSettings
+---@field enabled boolean
+---
+---@class GithubCopilotSettings
 ---@field enabled boolean
 
 local function load_settings_override()

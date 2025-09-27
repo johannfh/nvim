@@ -256,7 +256,14 @@ return {
         "folke/todo-comments.nvim",
         event = "VimEnter",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { signs = false },
+        opts = {
+            signs = false, -- show icons in the signs column
+            keywords = {
+                SAFETY = { icon = "⚠️", color = "info", alt = { } },
+            },
+            -- when true, custom keywords will be merged with the defaults
+            merge_keywords = true,
+        },
     },
 
     { -- Collection of various small independent plugins/modules
