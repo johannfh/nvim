@@ -3,6 +3,7 @@
 ---@class Settings
 ---@field wakatime WakatimeSettings
 ---@field github_copilot GithubCopilotSettings
+---@field lsp LspSettings
 ---
 ---Settings for the Wakatime plugin.
 ---@class WakatimeSettings
@@ -10,9 +11,15 @@
 ---
 ---@class GithubCopilotSettings
 ---@field enabled boolean
+---
+---Settings for LSP servers.
+---See also: `:help lspconfig-all` for a list of all pre-configured LSPs.
+---@class LspSettings
+---A table where keys are LSP server names and values are their config options.
+---@field servers table<string, table>
 
 local function load_settings_override()
-    local base_cfg_path = vim.fn.stdpath('config') .. "/.nvim-settings.lua"
+    local base_cfg_path = vim.fn.stdpath("config") .. "/.nvim-settings.lua"
 
     local success, settings = pcall(dofile, base_cfg_path)
 

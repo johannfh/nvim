@@ -39,7 +39,7 @@ return {
             --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
             --  - settings (table): Override the default settings passed when initializing the server.
             --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-            local servers = {
+            local servers = vim.tbl_deep_extend("force", {
                 -- Golang
                 gopls = {},
                 -- Zig
@@ -57,20 +57,20 @@ return {
                 -- },
                 -- Rust
                 rust_analyzer = {
-                    imports = {
-                        granularity = {
-                            group = "module",
-                        },
-                        prefix = "self",
-                    },
-                    cargo = {
-                        buildScripts = {
-                            enable = true,
-                        },
-                    },
-                    procMacro = {
-                        enable = true
-                    },
+                    --imports = {
+                    --    granularity = {
+                    --        group = "module",
+                    --    },
+                    --    prefix = "self",
+                    --},
+                    --cargo = {
+                    --    buildScripts = {
+                    --        enable = true,
+                    --    },
+                    --},
+                    --procMacro = {
+                    --    enable = true
+                    --},
                 },
                 -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
                 --
@@ -94,7 +94,7 @@ return {
                         },
                     },
                 },
-            }
+            }, vim.g.settings.lsp.servers or {})
 
             -- Ensure the servers and tools above are installed
             --  To check the current status of installed tools and/or manually install
