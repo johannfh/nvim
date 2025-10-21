@@ -260,6 +260,7 @@ return {
             signs = false, -- show icons in the signs column
             keywords = {
                 SAFETY = { icon = "⚠️", color = "info", alt = { } },
+                NB = { icon = "📝", color = "hint", alt = { } },
             },
             -- when true, custom keywords will be merged with the defaults
             merge_keywords = true,
