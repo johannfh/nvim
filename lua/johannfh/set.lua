@@ -25,7 +25,7 @@ vim.opt.expandtab = true
 vim.opt.breakindent = true
 
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
