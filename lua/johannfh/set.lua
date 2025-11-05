@@ -57,3 +57,6 @@ vim.opt.showmode = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Use LF over CRLF also on windows
+vim.opt.fileformats = 'unix,dos'
