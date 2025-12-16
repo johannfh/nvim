@@ -93,3 +93,9 @@ autocmd("LspAttach", {
         end
     end,
 })
+
+vim.filetype.add({
+    extension = {
+        lc = "lucid",
+    },
+})

@@ -334,6 +334,18 @@ return {
             },
             indent = { enable = true, disable = { "ruby" } },
         },
+        -- on setup
+        config = function(_, _opts)
+            require("nvim-treesitter.parsers").get_parser_configs().lucid = {
+                install_info = {
+                    url = "~/personal/tree-sitter-lucid",
+                    files = { "src/parser.c" },
+                    generate_requires_npm = false,
+                    requires_generate_from_grammar = true,
+                },
+                filetype = "lucid",
+            }
+        end,
         -- There are additional nvim-treesitter modules that you can use to interact
         -- with nvim-treesitter. You should go explore a few and see what interests you:
         --
