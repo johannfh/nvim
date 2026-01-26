@@ -1,4 +1,5 @@
-return {
-    "github/copilot.vim",
-    config = function() end
-}
+return {}
+--return {
+--    "github/copilot.vim",
+--    config = function() end
+--}

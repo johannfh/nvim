@@ -47,8 +47,6 @@ return {
                 -- Python
                 pyright = {},
                 pylint = {},
-                -- HTML
-                emmet_ls = {},
                 -- clangd = {},
                 -- dartls = {}, -- how do i get this to work?? Also: flutter?
                 -- ruby_lsp = {
